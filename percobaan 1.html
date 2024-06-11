@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Locky⚡</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ff1493;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      max-width: 80%;
+    }
+
+    h1 {
+      font-weight: bold;
+      font-size: 2.25rem;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin-bottom: 5px;
+    }
+
+    button {
+      background-color: #ff1493;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #ff9900;
+    }
+
+    #pesan {
+      margin-top: 20px;
+      font-size: 1.125rem;
+    }
+
+    #gambar-container {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #gambar {
+      max-width: 100%;
+      /* Added for responsiveness */
+      height: auto;
+    }
+
+    .locky-text {
+      font-style: italic;
+      color: #ffd700;
+    }
+
+    /* Media Query for Mobile View */
+    @media only screen and (max-width: 600px) {
+      .container {
+        padding: 15px;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+      button {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h2>Save your belongings with</h2>
+    <h1><span class="locky-text">Locky!</span></h1>
+    <input type="text" id="nama" placeholder="Nama">
+    <input type="text" id="identitas" placeholder="Identitas">
+    <button type="button" id="pesanButton">Pesan Loker</button>
+    <div id="pesan"></div>
+
+    <div id="gambar-container">
+      <img id="gambar" src="https://www.dropbox.com/scl/fi/zkorbx2ha9oz23320v43z/locky.jpg?rlkey=l1mg1cb9n32zr6qk0oi5obqha&st=9tn7wr6c&dl=0" alt="Gambar terpilih">
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("pesanButton").addEventListener("click", function() {
+      var nama = document.getElementById('nama').value;
+      var identitas = document.getElementById('identitas').value;
+      var gambar = document.getElementById('gambar');
+      var gambarContainer = document.getElementById('gambar-container');
+      var pesan = document.getElementById('pesan');
+      var urlGambar = 'hhttps://www.dropbox.com/scl/fi/zkorbx2ha9oz23320v43z/locky.jpg?rlkey=l1mg1cb9n32zr6qk0oi5obqha&st=9tn7wr6c&dl=0';
+      if (nama === '' || identitas === '') {
+        pesan.textContent = 'Mohon lengkapi nama dan identitas Anda';
+        return;
+      }
+      gambar.src = urlGambar;
+      gambarContainer.style.display = 'block';
+      pesan.textContent = 'Anda (' + nama + ') telah memesan loker dengan identitas: ' + identitas;
+      setTimeout(function() {
+        gambarContainer.style.display = 'none';
+        pesan.textContent = '';
+      }, 10000);
+    });
+  </script>
+
+</body>
+
+</html>
